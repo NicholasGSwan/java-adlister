@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        String name = "";
+        String name;
         name = req.getParameter("name");
         if(name == null){
             name = "World";
