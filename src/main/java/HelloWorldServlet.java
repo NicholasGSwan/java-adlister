@@ -8,7 +8,7 @@ public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         String name;
         name = req.getParameter("name");
-        if(name == null){
+        if(name == null || name.trim().isEmpty()){
             name = "World";
         }
         res.setContentType("text/html");
