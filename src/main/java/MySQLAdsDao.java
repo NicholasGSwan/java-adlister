@@ -20,9 +20,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    public List<Ad> all(){
-        return all(0L);
-    }
 
     @Override
     public List<Ad> all(Long id){
@@ -43,16 +40,20 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+    public List<Ad> all(){
+        return all(0L);
+    }
     @Override
     public Long insert(Ad ad){
         Long id = 0L;
-        String query = "INSERT INTO ads (user_id, title, description) values('"+ ad.getUserId() + "', '"+ ad.getTitle() +"', '" + ad.getDescription() + "')";
+        String query = "INSERT INTO ads (user_id, title, description) VALUES ('"+ ad.getUserId() + "', '"+ ad.getTitle() +"', '" + ad.getDescription() + "')";
         try {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next()) {
                 id = rs.getLong(1);
+                System.out.println("new id is: "+ id);
             }
         }catch (SQLException e){
             e.printStackTrace();
