@@ -47,6 +47,7 @@ public class MySQLAdsDao implements Ads {
         try{
             stmt = connection.prepareStatement(createSQLStatement(adId));
             ResultSet rs = stmt.executeQuery();
+            rs.next();
             return extractAd(rs);
 
         }catch(SQLException e){

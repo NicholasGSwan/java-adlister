@@ -8,7 +8,10 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
+<div>
+    <h2><c:out value="${ad.title}"/></h2>
+    <p><c:out value="${ad.description}"/></p>
+</div>
 
 </body>
 </html>
